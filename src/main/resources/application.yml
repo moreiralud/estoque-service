@@ -1,0 +1,22 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-estoque:5432/estoque
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate.ddl-auto: validate      # somente valida; quem cria é o Flyway
+    open-in-view: false
+
+  flyway:
+    postgresql:
+      compatible-versions: 15         # necessário se o banco for Postgres 15.x
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
